@@ -4,7 +4,11 @@ _gffolder="googlefontdirectory"
 echo "Connecting to git fonts...."
 cd /
 mkdir $_gffolder && cd $_gffolder
-git clone --depth=1 $_gfrepo
+git clone $_gfrepo
+
+cd fonts
+git checkout d013dcd75306d7ead22057188a93e1e67bd9d357
+cd ..
 
 echo "Fonts git checkout done"
 sudo mkdir -p /usr/share/fonts/truetype/google-fonts/
