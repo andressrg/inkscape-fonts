@@ -1,0 +1,16 @@
+_gfrepo="http://github.com/google/fonts.git"
+_gffolder="googlefontdirectory"
+
+echo "Connecting to git fonts...."
+cd /
+mkdir $_gffolder && cd $_gffolder
+git clone --depth=1 $_gfrepo
+
+echo "Fonts git checkout done"
+sudo mkdir -p /usr/share/fonts/truetype/google-fonts/
+find /$_gffolder/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
+fc-cache -f > /dev/null
+
+rm -rf /$_gffolder
+
+echo "Fonts installed."
