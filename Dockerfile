@@ -1,14 +1,8 @@
-FROM ubuntu:14.04.1
+FROM debian:stretch
 
 RUN apt-get update && apt-get install -y \
-        software-properties-common \
-        python-software-properties \
-        git
-
-# Installing inkscape
-RUN add-apt-repository ppa:inkscape.dev/stable \
-        && apt-get update \
-        && apt-get install -y --no-install-recommends inkscape=0.91.0+47~ubuntu14.04.1
+        git \
+        inkscape
 
 # Installing fonts
 COPY lib/install-google-fonts /tmp/

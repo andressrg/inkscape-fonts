@@ -11,8 +11,8 @@ git checkout d013dcd75306d7ead22057188a93e1e67bd9d357
 cd ..
 
 echo "Fonts git checkout done"
-sudo mkdir -p /usr/share/fonts/truetype/google-fonts/
-find /$_gffolder/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
+mkdir -p /usr/share/fonts/truetype/google-fonts/
+find /$_gffolder/ -name "*.ttf" -exec install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
 fc-cache -f > /dev/null
 
 rm -rf /$_gffolder
